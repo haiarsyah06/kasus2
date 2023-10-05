@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student score</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        </style>
+</head>
+<body>
+    <h1>Daftar Nilai Siswa</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 10%;">nama</th>
+                <th style="width: 5%;">nilai</th> 
+                <th style="width: 20%;">Deskripsi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student['name']}}</td>
+                <td>{{ student['score']}}</td>
+                <td>{% if student['score'] > 90 %}
+                     Congratulations
+                    {% elif student['score'] >= 76 %}
+                     Very good
+                    {% else %}
+                     maaf, Anda tidak lulus
+                    {% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+   <!-- <ul>
+        {% for student in students %}
+            <li>
+                Nama: {{ student['name'] }} - Nilai: {{ student['score'] }}
+                {% if student['score'] > 90 %}
+                    - Congratulations
+                {% elif student['score'] >= 76 %}
+                    - Very good
+                {% else %}
+                    - maaf, Anda tidak lulus
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul> -->
+
+</body>
+</html>
